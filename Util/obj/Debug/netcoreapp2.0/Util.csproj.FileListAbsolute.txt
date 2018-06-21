@@ -1,0 +1,8 @@
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/bin/Debug/netcoreapp2.0/Util.deps.json
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/bin/Debug/netcoreapp2.0/Util.dll
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/bin/Debug/netcoreapp2.0/Util.pdb
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/obj/Debug/netcoreapp2.0/Util.csproj.CoreCompileInputs.cache
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/obj/Debug/netcoreapp2.0/Util.AssemblyInfoInputs.cache
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/obj/Debug/netcoreapp2.0/Util.AssemblyInfo.cs
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/obj/Debug/netcoreapp2.0/Util.dll
+/home/jonathan/RiderProjects/FSharpCompare/Procedural/Util/obj/Debug/netcoreapp2.0/Util.pdb
