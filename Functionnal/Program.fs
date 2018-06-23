@@ -12,6 +12,6 @@ let main argv =
         | None -> "type not found"
     
     printfn (Printf.TextWriterFormat<_> (execute "interest" Fund.process 10))
-    printfn (Printf.TextWriterFormat<_> (execute "interest" Fund.sum ({amountUnites=1; amountInvested=1})))
+    printfn (Printf.TextWriterFormat<_> (execute "interest" Fund.sum {amountUnites=1; amountInvested=1}))
     
     0 // return an integer exit code

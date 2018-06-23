@@ -3,6 +3,9 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <WarningsAsErrors>25</WarningsAsErrors>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Fund.fs" />
     <Compile Include="Program.fs" />

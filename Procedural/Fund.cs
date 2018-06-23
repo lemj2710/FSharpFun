@@ -1,4 +1,5 @@
-﻿using Util;
+﻿using System.Runtime.Serialization.Formatters;
+using Util;
 
 namespace Procedural
 {
@@ -7,8 +8,10 @@ namespace Procedural
         // Method 1
         public decimal Process(string type, decimal total)
         {
+            // Default value?
             var totalProcessed = 0m;
                 
+            // Mixed logic & duplicated logic?
             if (type == "interest" && total > 10)
             {
                 totalProcessed = total * Constante.RateAddI;
@@ -16,6 +19,9 @@ namespace Procedural
             else if (type == "interest")
             {
                 totalProcessed = total * Constante.RateAddB;
+
+                //var rate = (total > 10) ? Constante.RateAddI : Constante.RateAddB;
+                //totalProcessed = total * rate;
             }
             else if (type == "investor")
             {
@@ -25,6 +31,7 @@ namespace Procedural
             {
                 totalProcessed = total;
             }
+            // missing default else ?
             
             return totalProcessed;
         }
