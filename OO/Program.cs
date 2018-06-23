@@ -6,6 +6,7 @@ namespace OO
     {
         private static void Main(string[] args)
         {
+            System.Console.WriteLine($"OO");
             App.StartApp(args);
 
             var fund = new Fund();

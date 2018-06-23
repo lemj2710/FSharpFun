@@ -4,6 +4,9 @@ open Util
 
 [<EntryPoint>]
 let main argv =
+    printfn "Functionnal"
+    
+    // Seems familliar ... 
     App.StartApp argv
     
     let execute task fund = 

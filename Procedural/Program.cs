@@ -6,6 +6,7 @@ namespace Procedural
     {
         private static void Main(string[] args)
         {
+            System.Console.WriteLine($"Procedural");
             App.StartApp(args);
 
             var fund = new Fund();
