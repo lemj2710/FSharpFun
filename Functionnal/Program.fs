@@ -1,6 +1,5 @@
 ﻿open Functionnal
 open Util
-open System
 
 [<EntryPoint>]
 let main argv =

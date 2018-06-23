@@ -17,6 +17,9 @@ namespace OO
         // FACTORY METHOD
         public static IFund Make(string type)
         {
+            /*
+             * null?
+             */
             IFund fundType = null;
             
             switch (type)
@@ -31,6 +34,7 @@ namespace OO
                     fundType = new FundConvert();
                     break;
                 default:
+                    // should we throw a exception
                     System.Console.WriteLine($"Not found Fund {type}");
                     break;
             }
