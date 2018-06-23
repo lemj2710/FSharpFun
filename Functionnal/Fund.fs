@@ -3,11 +3,12 @@ namespace Functionnal
 open Rate
     
 module Fund =
+    // This is a union type , TypeFund is like a Interface without definition for method
     type TypeFund =
         | Interest
         | Investor
         | Convert
-        
+         
     // Here my factory
     // function is syntactic sugar for let make parameter = match parameter with ...
     let make = function 
@@ -16,18 +17,18 @@ module Fund =
         | "convert" -> Some Convert
         | _ -> None
     
-    let process fund total = 
+    let process total baseValue fund = 
         match fund with 
-        | Interest -> Rate.multiply total (Rate.Interest.rate total)
-        | Investor-> Rate.multiply total Rate.Investor.rate
+        | Interest -> baseValue + Rate.multiply total (Rate.Interest.rate total)
+        | Investor -> baseValue + Rate.multiply total Rate.Investor.rate
         | Convert -> total
         
     // this is a record, like tuple but with named property 
     // type Data = int*int
     type Data = {amountUnites: int; amountInvested: int}
                 
-    let sum fund {amountUnites=amountUnites; amountInvested=amountInvested} = 
+    let sum {amountUnites=amountUnites; amountInvested=amountInvested} fund = 
         match fund with 
         | Interest -> amountUnites
-        | Investor-> amountInvested
+        | Investor -> amountInvested
         | Convert -> amountUnites + amountInvested

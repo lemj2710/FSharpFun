@@ -5,7 +5,7 @@ namespace Procedural
     public class Fund
     {
         // Method 1
-        public decimal Process(string type, decimal total)
+        public decimal Process(string type, decimal total, decimal baseValue)
         {
             // Default value?
             var totalProcessed = 0m;
@@ -13,18 +13,18 @@ namespace Procedural
             // Mixed logic & duplicated logic?
             if (type == "interest" && total > 10)
             {
-                totalProcessed = total * Constante.RateAddI;
+                totalProcessed = baseValue + total * Constante.RateAddI;
             }
             else if (type == "interest")
             {
-                totalProcessed = total * Constante.RateAddB;
+                totalProcessed = baseValue + total * Constante.RateAddB;
 
                 //var rate = (total > 10) ? Constante.RateAddI : Constante.RateAddB;
-                //totalProcessed = total * rate;
+                //totalProcessed = baseValue + (total * rate);
             }
             else if (type == "investor")
             {
-                totalProcessed = total * Constante.RateEditB;
+                totalProcessed = baseValue + total * Constante.RateEditB;
             }
             else if (type == "convert")
             {

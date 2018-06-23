@@ -6,12 +6,12 @@ namespace OO
     public interface IFund
     {
         decimal Sum(Data data);
-        decimal Process(decimal total);
+        decimal Process(decimal total, decimal baseValue);
     }
     
     public class Fund
     {
-        public decimal Process(string type, decimal total) => Make(type).Process(total);
+        public decimal Process(string type, decimal total, decimal baseValue) => Make(type).Process(total, baseValue);
         public decimal Sum(string type, Data data) => Make(type).Sum(data);
         
         // FACTORY METHOD
@@ -47,14 +47,14 @@ namespace OO
     public class FundConvert : IFund
     {
         public decimal Sum(Data data) => data.AmountUnites + data.AmountInvested;
-        public decimal Process(decimal total) => total;
+        public decimal Process(decimal total, decimal baseValue) => total;
     }
         
     // Separate logic by Type
     public class FundInterest : IFund
     {
         public decimal Sum(Data data) => data.AmountUnites;
-        public decimal Process(decimal total) => GetRate(total) * total;
+        public decimal Process(decimal total, decimal baseValue) => baseValue + total * GetRate(total);
         
         private int GetRate(decimal total) => (total > 10) ? Constante.RateAddI : Constante.RateAddB;
     }
@@ -63,6 +63,6 @@ namespace OO
     public class FundInvestor : IFund
     {
         public decimal Sum(Data data) => data.AmountInvested;
-        public decimal Process(decimal total) => total * Constante.RateEditB;
+        public decimal Process(decimal total, decimal baseValue) => baseValue + total * Constante.RateEditB;
     }
 }
