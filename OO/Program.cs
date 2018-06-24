@@ -9,10 +9,10 @@ namespace OO
             System.Console.WriteLine($"OO");
             App.StartApp(args);
 
-            var fund = new Fund();
+            var fund = Fund.Make(args[1]);
 
-            var processValue = fund.Process(args[1], decimal.Parse(args[2]), decimal.Parse(args[2]));
-            var sumValue = fund.Sum(args[1], new Data(decimal.Parse(args[3]), decimal.Parse(args[3])));
+            var processValue = fund.Process(decimal.Parse(args[2]), decimal.Parse(args[2]));
+            var sumValue = fund.Sum(new Data(decimal.Parse(args[3]), decimal.Parse(args[3])));
             
             System.Console.WriteLine($"Process {processValue}");
             System.Console.WriteLine($"Sum {sumValue}");

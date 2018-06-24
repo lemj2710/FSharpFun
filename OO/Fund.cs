@@ -9,16 +9,13 @@ namespace OO
         decimal Process(decimal total, decimal baseValue);
     }
     
-    public class Fund
+    public static class Fund
     {
-        public decimal Process(string type, decimal total, decimal baseValue) => Make(type).Process(total, baseValue);
-        public decimal Sum(string type, Data data) => Make(type).Sum(data);
-        
         // FACTORY METHOD
         public static IFund Make(string type)
         {
             /*
-             * null?
+             * null
              */
             IFund fundType = null;
             
@@ -34,7 +31,7 @@ namespace OO
                     fundType = new FundConvert();
                     break;
                 default:
-                    // should we throw a exception
+                    // should we throw a exception?
                     System.Console.WriteLine($"Not found Fund {type}");
                     break;
             }

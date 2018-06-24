@@ -17,6 +17,11 @@ module Fund =
         | "convert" -> Some Convert
         | _ -> None
     
+    let execute task maybeAFund = 
+        match maybeAFund with
+        | Some fund -> sprintf "processFund %i" (task fund)
+        | None -> "type not found"
+        
     let process total baseValue fund = 
         match fund with 
         | Interest -> baseValue + Rate.multiply total (Rate.Interest.rate total)
@@ -32,3 +37,5 @@ module Fund =
         | Interest -> amountUnites
         | Investor -> amountInvested
         | Convert -> amountUnites + amountInvested
+        
+    // What is the difference between the sum function and the equivalent procedural function?
