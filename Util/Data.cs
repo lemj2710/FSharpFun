@@ -10,5 +10,11 @@
             AmountUnites = amountUnites;
             AmountInvested = amountInvested;
         }
+        
+        public void Deconstruct(out decimal amountUnites, out decimal amountInvested)
+        {
+            amountUnites = AmountUnites;
+            amountInvested = AmountInvested;
+        }
     }
 }

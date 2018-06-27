@@ -3,6 +3,19 @@
   <component name="ContentModelStore">
     <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_Procedural.-960579701.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="CSharpFunctionnal" t="IncludeRecursive">
+        <e p="CSharpFunctionnal.csproj" t="IncludeRecursive" />
+        <e p="Fund.cs" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp2.0" t="Include">
+              <e p="CSharpFunctionnal.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="Functionnal" t="IncludeRecursive">
         <e p="Functionnal.fsproj" t="IncludeRecursive" />
         <e p="Fund.fs" t="Include" />

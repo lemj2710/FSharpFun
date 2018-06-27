@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Util", "Util\Util.csproj", 
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Functionnal", "Functionnal\Functionnal.fsproj", "{D32131B9-386E-4ED2-96A8-8843F5F6C19B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFunctionnal", "CSharpFunctionnal\CSharpFunctionnal.csproj", "{79CF3C43-19C6-406B-B7DD-8B3CB22B6E5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{D32131B9-386E-4ED2-96A8-8843F5F6C19B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D32131B9-386E-4ED2-96A8-8843F5F6C19B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D32131B9-386E-4ED2-96A8-8843F5F6C19B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79CF3C43-19C6-406B-B7DD-8B3CB22B6E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79CF3C43-19C6-406B-B7DD-8B3CB22B6E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79CF3C43-19C6-406B-B7DD-8B3CB22B6E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79CF3C43-19C6-406B-B7DD-8B3CB22B6E5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
