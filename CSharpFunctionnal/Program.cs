@@ -10,15 +10,13 @@ namespace CSharpFunctionnal
             Console.WriteLine("CSharpFunctionnal");
             App.StartApp(args);
 
-            var (fund, isError) = Fund.Make(args[1]);
+            var fund = Fund.Make(args[1]);
 
-            if (isError) throw new Exception($"Cannot make fund with {args[1]}");
+            var process = Fund.Process(decimal.Parse(args[2]), decimal.Parse(args[2]));
+            var sum = Fund.Sum(new Data(decimal.Parse(args[3]), decimal.Parse(args[3])));
             
-            var processValue = Fund.Process(fund, decimal.Parse(args[2]), decimal.Parse(args[2]));
-            var sumValue = Fund.Sum(fund, new Data(decimal.Parse(args[3]), decimal.Parse(args[3])));
-            
-            Console.WriteLine($"Process {processValue}");
-            Console.WriteLine($"Sum {sumValue}");
+            Console.WriteLine($"Process {Fund.Execute(process, fund)}");
+            Console.WriteLine($"Sum {Fund.Execute(sum, fund)}");
         }
     }
 }
