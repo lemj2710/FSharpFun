@@ -1,4 +1,4 @@
-﻿namespace CSharpFunctionnal
+﻿namespace Util
 {
     public class Rate
     {

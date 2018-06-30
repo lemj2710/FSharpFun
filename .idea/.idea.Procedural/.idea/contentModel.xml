@@ -57,6 +57,8 @@
         <e p="Constante.cs" t="Include" />
         <e p="Data.cs" t="Include" />
         <e p="EditMode.cs" t="Include" />
+        <e p="Option.cs" t="Include" />
+        <e p="Rate.cs" t="Include" />
         <e p="ReadMode.cs" t="Include" />
         <e p="Util.csproj" t="IncludeRecursive" />
         <e p="bin" t="ExcludeRecursive" />

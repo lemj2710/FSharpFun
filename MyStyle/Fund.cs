@@ -2,26 +2,36 @@
 using Procedural;
 using Util;
 
-namespace CSharpFunctionnal
+namespace MyStyle
 {
-    public interface IFund { }
-    
-    public class FundConvert: IFund { }
+    public interface IFund
+    {
+        decimal Process(decimal total, decimal baseValue);
+    }
+
+    public class FundConvert : IFund
+    {
+        public decimal Process(decimal total, decimal baseValue) =>
+            total;
+    }
 
     public class FundInterest : IFund
     {
-        public Rate Rate(decimal total) => 
+        public decimal Process(decimal total, decimal baseValue) =>
+            baseValue + Rate(total).Multiply(total);
+        
+        private static Rate Rate(decimal total) => 
             (total > 10) ? new Rate(Constante.RateAddI) : new Rate(Constante.RateAddB);
     }
 
     public class FundInvestor : IFund
     {
-        public readonly Rate Rate = new Rate(Constante.RateEditB);
+        public decimal Process(decimal total, decimal baseValue) =>
+            baseValue + Constante.RateEditB * total;
     }
     
     public static class Fund
     {
-        // FACTORY METHOD
         public static Option<IFund> Make(string type)
         {
             Option<IFund> fundType;
@@ -51,19 +61,18 @@ namespace CSharpFunctionnal
         public static Func<IFund, decimal> Sum(Data data) =>
             (fund) =>
                 {
-                    var (amountUnites, amountInvested) = data;
                     var total = 0m;
                     
                     switch (fund)
                     {
                         case FundInterest f:
-                            total = amountUnites;
+                            total = data.AmountUnites;
                             break;
                         case FundInvestor f:
-                            total = amountInvested;
+                            total = data.AmountInvested;
                             break;
                         case FundConvert f:
-                            total = amountUnites + amountInvested;
+                            total = data.AmountUnites + data.AmountInvested;
                             break;
                     }
     
@@ -71,26 +80,6 @@ namespace CSharpFunctionnal
                 };
         
         public static Func<IFund, decimal> Process(decimal total, decimal baseValue) =>
-            (fund) =>
-                {
-                    var value = 0m;
-                
-                    switch (fund)
-                    {
-                        case FundInterest f:
-                            value = baseValue + f.Rate(total).Multiply(total);
-                            break;
-                        case FundInvestor f:
-                            value = baseValue + f.Rate.Multiply(total);
-                            break;
-                        case FundConvert f:
-                            value = total;
-                            break;
-                    }
-    
-                    return value;
-                };
+            (fund) => fund.Process(total, baseValue);
     }
 }
-
-// Is there any advantage
