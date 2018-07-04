@@ -56,14 +56,11 @@ namespace CSharpFunctionnal
                     
                     switch (fund)
                     {
-                        case FundInterest f:
+                        case FundInterest _:
                             total = amountUnites;
                             break;
-                        case FundInvestor f:
+                        case FundInvestor _:
                             total = amountInvested;
-                            break;
-                        case FundConvert f:
-                            total = amountUnites + amountInvested;
                             break;
                     }
     
@@ -83,7 +80,7 @@ namespace CSharpFunctionnal
                         case FundInvestor f:
                             value = baseValue + f.Rate.Multiply(total);
                             break;
-                        case FundConvert f:
+                        case FundConvert _:
                             value = total;
                             break;
                     }
