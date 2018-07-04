@@ -62,6 +62,9 @@ namespace CSharpFunctionnal
                         case FundInvestor _:
                             total = amountInvested;
                             break;
+                        case FundConvert _:
+                            total = amountUnites + amountInvested;
+                            break;
                     }
     
                     return total;
