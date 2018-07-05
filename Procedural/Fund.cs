@@ -5,7 +5,7 @@ namespace Procedural
     public class Fund
     {
         // Method 1
-        public decimal Process(string type, decimal total, decimal baseValue)
+        public static decimal Process(string type, decimal total, decimal baseValue)
         {
             // Default value?
             var totalProcessed = 0m;
@@ -36,7 +36,7 @@ namespace Procedural
         }
         
         // Method 2 with similar code from method 1
-        public decimal Sum(string type, Data data)
+        public static decimal Sum(string type, Data data)
         {
             var sum = 0m;
                 

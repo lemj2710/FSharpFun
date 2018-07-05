@@ -4,6 +4,7 @@
     <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_Procedural.-960579701.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="CSharpFunctionnal" t="IncludeRecursive">
+        <e p="Account.cs" t="Include" />
         <e p="CSharpFunctionnal.csproj" t="IncludeRecursive" />
         <e p="Fund.cs" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -17,6 +18,7 @@
         </e>
       </e>
       <e p="Functionnal" t="IncludeRecursive">
+        <e p="Account.fs" t="Include" />
         <e p="Functionnal.fsproj" t="IncludeRecursive" />
         <e p="Fund.fs" t="Include" />
         <e p="Program.fs" t="Include" />
@@ -25,6 +27,7 @@
         <e p="obj" t="ExcludeRecursive" />
       </e>
       <e p="OO" t="IncludeRecursive">
+        <e p="Account.cs" t="Include" />
         <e p="Fund.cs" t="Include" />
         <e p="OO.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />
@@ -38,6 +41,7 @@
         </e>
       </e>
       <e p="Procedural" t="IncludeRecursive">
+        <e p="Account.cs" t="Include" />
         <e p="Fund.cs" t="Include" />
         <e p="Procedural.csproj" t="IncludeRecursive" />
         <e p="Program.cs" t="Include" />

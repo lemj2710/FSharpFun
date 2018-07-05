@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Util;
 
 namespace CSharpFunctionnal
@@ -10,13 +11,17 @@ namespace CSharpFunctionnal
             Console.WriteLine("CSharpFunctionnal");
             App.StartApp(args);
 
-            var fund = Fund.Make(args[1]);
+            var fund = Fund.Make(args[1], decimal.Parse(args[2]));
 
             var process = Fund.Process(decimal.Parse(args[2]), decimal.Parse(args[2]));
-            var sum = Fund.Sum(new Data(decimal.Parse(args[3]), decimal.Parse(args[3])));
+
+            var types = new List<Option<IFund>> { fund, fund, Fund.Make("", decimal.Parse(args[2]))};
+            var data = new Data(decimal.Parse(args[3]), decimal.Parse(args[3]));
             
-            Console.WriteLine($"Process {Fund.Execute(process, fund)}");
-            Console.WriteLine($"Sum {Fund.Execute(sum, fund)}");
+            var sum = Account.CalculateListTotal(types, data);
+            
+            Console.WriteLine($"Process {Fund.Process(process, fund)}");
+            Console.WriteLine($"Sum {sum}");
         }
     }
 }

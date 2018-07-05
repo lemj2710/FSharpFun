@@ -14,10 +14,7 @@ namespace OO
         // FACTORY METHOD
         public static IFund Make(string type)
         {
-            /*
-             * null
-             */
-            IFund fundType = null;
+            IFund fundType;
             
             switch (type)
             {
@@ -31,15 +28,26 @@ namespace OO
                     fundType = new FundConvert();
                     break;
                 default:
+                    // Same problem as procedural
                     // should we throw a exception?
-                    System.Console.WriteLine($"Not found Fund {type}");
+                    // throw new Exception("error"); or
+                    // fundType = null; or
+                    // System.Console.WriteLine($"Not found Fund {type}"); or
+                    fundType = new FundNull();
                     break;
             }
 
             return fundType;
         }
     }
-   
+
+    // the Null object pattern
+    public class FundNull : IFund
+    {
+        public decimal Sum(Data data) => 0;
+        public decimal Process(decimal total, decimal baseValue) => 0;
+    }
+
     // Separate logic by Type
     public class FundConvert : IFund
     {

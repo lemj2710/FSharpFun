@@ -9,6 +9,7 @@
   <ItemGroup>
     <Compile Include="Rate.fs" />
     <Compile Include="Fund.fs" />
+    <Compile Include="Account.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

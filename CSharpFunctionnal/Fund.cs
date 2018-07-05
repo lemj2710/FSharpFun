@@ -5,34 +5,41 @@ using Util;
 namespace CSharpFunctionnal
 {
     public interface IFund { }
-    
     public class FundConvert: IFund { }
-
     public class FundInterest : IFund
     {
-        public Rate Rate(decimal total) => 
-            (total > 10) ? new Rate(Constante.RateAddI) : new Rate(Constante.RateAddB);
+        public readonly Rate Rate;
+        
+        public FundInterest(Rate rate)
+        {
+            this.Rate = rate;
+        }
     }
-
     public class FundInvestor : IFund
     {
-        public readonly Rate Rate = new Rate(Constante.RateEditB);
+        public readonly Rate Rate;
+
+        public FundInvestor(Rate rate)
+        {
+            this.Rate = rate;
+        }
     }
     
     public static class Fund
     {
         // FACTORY METHOD
-        public static Option<IFund> Make(string type)
+        public static Option<IFund> Make(string type, decimal total)
         {
             Option<IFund> fundType;
             
             switch (type)
             {
                 case "interest":
-                    fundType = new Some<IFund>(new FundInterest());
+                    var rate = (total > 10) ? new Rate(Constante.RateAddI) : new Rate(Constante.RateAddB);
+                    fundType = new Some<IFund>(new FundInterest(rate));
                     break;
                 case "investor":
-                    fundType = new Some<IFund>(new FundInvestor());
+                    fundType = new Some<IFund>(new FundInvestor(new Rate(Constante.RateEditB)));
                     break;
                 case "convert":
                     fundType = new Some<IFund>(new FundConvert());
@@ -45,15 +52,19 @@ namespace CSharpFunctionnal
             return fundType;
         }
 
-        public static string Execute(Func<IFund, decimal> task, Option<IFund> fund) =>
-            fund.Match((f) => $"processFund {task(f)}", () => "type not found");
+        public static decimal Process(Func<IFund, decimal> task, Option<IFund> fund) =>
+            fund.Match(task, () => 0);
         
-        public static Func<IFund, decimal> Sum(Data data) =>
+        public static Func<Option<IFund>, decimal> Sum(Data data) =>
+            (fund) => fund.Match(SumFund(data), () => 0);
+
+        private static Func<IFund, decimal> SumFund(Data data) =>
             (fund) =>
                 {
                     var (amountUnites, amountInvested) = data;
+    
                     var total = 0m;
-                    
+    
                     switch (fund)
                     {
                         case FundInterest _:
@@ -78,7 +89,7 @@ namespace CSharpFunctionnal
                     switch (fund)
                     {
                         case FundInterest f:
-                            value = baseValue + f.Rate(total).Multiply(total);
+                            value = baseValue + f.Rate.Multiply(total);
                             break;
                         case FundInvestor f:
                             value = baseValue + f.Rate.Multiply(total);
