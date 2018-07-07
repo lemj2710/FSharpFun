@@ -16,7 +16,7 @@ let main argv =
     let types = [ maybeAFund; maybeAFund; Fund.make 10 "error" ]
     let data = {amountUnites=1; amountInvested=1}
 
-    let sumValue = types |> CalculateListTotal data;
+    let sumValue = CalculateListTotal data types;
                 
     // Which style should I use?
     Fund.process 10 10 maybeAFund |> sprintf "%i" |> Printf.TextWriterFormat<_> |> printfn

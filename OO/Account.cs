@@ -3,9 +3,16 @@ using Util;
 
 namespace OO
 {
-    public static class Account
+    public class Account
     {
-        public static decimal CalculateListTotal(IEnumerable<IFund> funds, Data data)
+        private readonly IEnumerable<IFund> funds;
+        
+        public Account(IEnumerable<IFund> funds)
+        {
+            this.funds = funds;
+        }
+        
+        public decimal CalculateListTotal(Data data)
         {   
             var total = 0m;
             

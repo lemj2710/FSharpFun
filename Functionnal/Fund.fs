@@ -8,7 +8,7 @@ module Fund =
         | Interest of Rate
         | Investor of Rate
         | Convert
-                 
+        
     // Here my factory
     let make total fund =
         match fund with  
