@@ -36,3 +36,6 @@ module Fund =
         | None -> 0
         
     // What is the difference between the sum function and the equivalent procedural function?
+    
+    // IS this program lying? 
+    // Count the number of defect
