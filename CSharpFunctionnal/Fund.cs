@@ -12,7 +12,7 @@ namespace CSharpFunctionnal
         
         public FundInterest(Rate rate)
         {
-            this.Rate = rate;
+            Rate = rate;
         }
     }
     public class FundInvestor : IFund
@@ -21,7 +21,7 @@ namespace CSharpFunctionnal
 
         public FundInvestor(Rate rate)
         {
-            this.Rate = rate;
+            Rate = rate;
         }
     }
     
@@ -55,10 +55,10 @@ namespace CSharpFunctionnal
         public static decimal Process(Func<IFund, decimal> task, Option<IFund> fund) =>
             fund.Match(task, () => 0);
         
-        public static Func<Option<IFund>, decimal> Sum(Data data) =>
-            (fund) => fund.Match(SumFund(data), () => 0);
+        public static Func<Option<IFund>, decimal> MapAndSum(Data data) =>
+            (fund) => fund.Match(Sum(data), () => 0);
 
-        private static Func<IFund, decimal> SumFund(Data data) =>
+        private static Func<IFund, decimal> Sum(Data data) =>
             (fund) =>
                 {
                     var (amountUnites, amountInvested) = data;

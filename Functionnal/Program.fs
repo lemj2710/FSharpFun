@@ -22,5 +22,6 @@ let main argv =
     Fund.process 10 10 maybeAFund |> sprintf "%i" |> Printf.TextWriterFormat<_> |> printfn
     
     printfn (Printf.TextWriterFormat<_> (sprintf "%i" sumValue))
+
     
     0 // return an integer exit code
