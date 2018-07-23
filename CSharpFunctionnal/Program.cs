@@ -20,7 +20,7 @@ namespace CSharpFunctionnal
             
             var sum = Account.CalculateListTotal(types, data);
             
-            Console.WriteLine($"Process {Fund.Process(process, fund)}");
+            Console.WriteLine($"Process {fund.Bind(process)}"); //Console.WriteLine($"Process {Fund.Process(process, fund)}");
             Console.WriteLine($"Sum {sum}");
         }
     }

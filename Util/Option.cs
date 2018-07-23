@@ -5,8 +5,7 @@ namespace Util
     public interface Option<TypeValue>
     {
         TResult Match<TResult>(Func<TypeValue, TResult> some, Func<TResult> none);
-        Option<TypeResult> Bind<TypeResult>(Func<TypeValue, Option<TypeResult>> transform);
-        Option<TypeValue> Unit(TypeValue value);
+        Option<TypeResult> Bind<TypeResult>(Func<TypeValue, TypeResult> transform);
     }
 
     public class Some<TypeValue> : Option<TypeValue>
@@ -19,8 +18,7 @@ namespace Util
         }
 
         public TResult Match<TResult>(Func<TypeValue, TResult> some, Func<TResult> none) => some(_value);
-        public Option<TypeResult> Bind<TypeResult>(Func<TypeValue, Option<TypeResult>> transform) => transform(_value);
-        public Option<TypeValue> Unit(TypeValue value) => new Some<TypeValue>(value);
+        public Option<TypeResult> Bind<TypeResult>(Func<TypeValue, TypeResult> transform) => new Some<TypeResult>(transform(_value));
 
         public override string ToString()
         {
@@ -31,8 +29,7 @@ namespace Util
     public class None<TypeValue> : Option<TypeValue>
     {
         public TResult Match<TResult>(Func<TypeValue, TResult> some, Func<TResult> none) => none();
-        public Option<TypeResult> Bind<TypeResult>(Func<TypeValue, Option<TypeResult>> transform) => new None<TypeResult>();
-        public Option<TypeValue> Unit(TypeValue value) => new None<TypeValue>();
+        public Option<TypeResult> Bind<TypeResult>(Func<TypeValue, TypeResult> transform) => new None<TypeResult>();
 
         public override string ToString()
         {

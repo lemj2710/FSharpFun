@@ -52,8 +52,8 @@ namespace CSharpFunctionnal
             return fundType;
         }
 
-        public static Option<decimal> Process(Func<IFund, decimal> task, Option<IFund> fund) =>
-            fund.Bind((IFund theFund) => new Some<decimal>(task(theFund)));
+        //public static Option<decimal> Process(Func<IFund, decimal> task, Option<IFund> fund) =>
+        //    fund.Bind(task);
         
         public static Func<Option<IFund>, decimal> MapAndSum(Data data) =>
             (fund) => fund.Match(Sum(data), () => 0);
