@@ -12,7 +12,6 @@ namespace Procedural
             // loop over bound (lenght or count) when has that ever went wrong?
             for (var index = 0; index < type.Count; index++)
             {
-                System.Console.WriteLine("loop");
                 total += Fund.Sum(type[index], data);
             }
 

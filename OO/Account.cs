@@ -18,7 +18,6 @@ namespace OO
             
             foreach (var fund in funds)
             {
-                System.Console.WriteLine("loop");
                 total += fund.Sum(data);
             }
 
